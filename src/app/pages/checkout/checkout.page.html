@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Checkout</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Confirm Your Appointment</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Service: {{ serviceType }}</p>
+      <p>Date: {{ appointmentDate | date: 'short' }}</p>
+      <p>Estimated Cost: {{ estimatedCost | currency }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" color="success" (click)="proceedToPayment()">
+    Proceed to Payment
+  </ion-button>
+</ion-content>

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Create Appointment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Customer Name</ion-label>
+      <ion-input [(ngModel)]="appointment.customerName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Service Type</ion-label>
+      <ion-input [(ngModel)]="appointment.serviceType"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Appointment Date</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY HH:mm" [(ngModel)]="appointment.appointmentDate"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Estimated Cost</ion-label>
+      <ion-input [(ngModel)]="appointment.estimatedCost" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Deposit Paid</ion-label>
+      <ion-checkbox [(ngModel)]="appointment.depositPaid"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="full" (click)="createAppointment()">Create Appointment</ion-button>
+</ion-content>
+

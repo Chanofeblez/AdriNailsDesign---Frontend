@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Citas</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/new-appointment">Nueva Cita</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="appointments.length>0; else noAppointments">
+    <ion-item *ngFor="let appointment of appointments" (click)="viewAppointment(appointment)">
+      <ion-label>
+        <h2>{{ appointment.customerName }}</h2>
+        <p>{{ appointment.serviceType }} - {{ appointment.appointmentDate | date:'short' }}</p>
+        <p>Estimated Cost: {{ appointment.estimatedCost | currency }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #noAppointments>
+    <ion-card>
+      <ion-card-content>
+        No hay citas disponibles.
+      </ion-card-content>
+    </ion-card>
+  </ng-template>
+</ion-content>
+

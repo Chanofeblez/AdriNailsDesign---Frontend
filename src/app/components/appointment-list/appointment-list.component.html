@@ -1,0 +1,18 @@
+<ion-list>
+  <ion-item >
+    <ion-label>
+      <h2>appointment.customerName </h2>
+      <p> appointment.serviceType  -  appointment.appointmentDate | date:'short'</p>
+      <p>Estimated Cost:  appointment.estimatedCost | currency </p>
+    </ion-label>
+  </ion-item>
+</ion-list>
+<ion-list>
+  <ion-item *ngFor="let appointment of appointments">
+    <ion-label>
+      <h2>{{ appointment.customerName }}</h2>
+      <p>{{ appointment.serviceType }} - {{ appointment.appointmentDate | date:'short' }}</p>
+      <p>Estimated Cost: {{ appointment.estimatedCost | currency }}</p>
+    </ion-label>
+  </ion-item>
+</ion-list>

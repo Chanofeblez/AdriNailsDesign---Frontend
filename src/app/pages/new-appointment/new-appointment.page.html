@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nueva Cita</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/appointments"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="createAppointment()">
+    <ion-item>
+      <ion-label position="floating">Nombre del Cliente</ion-label>
+      <ion-input [(ngModel)]="appointment.customerName" name="customerName" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Tipo de Servicio</ion-label>
+      <ion-select [(ngModel)]="appointment.serviceType" name="serviceType" required>
+        <ion-select-option value="manicure">Manicure</ion-select-option>
+        <ion-select-option value="pedicure">Pedicure</ion-select-option>
+        <ion-select-option value="acrylicNails">Uñas Acrílicas</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Fecha de la Cita</ion-label>
+      <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="appointment.appointmentDate" name="appointmentDate" required></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Hora</ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h:mm A" [(ngModel)]="appointment.appointmentTime" name="appointmentTime" required></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Depósito</ion-label>
+      <ion-input type="number" [(ngModel)]="appointment.deposit" name="deposit"></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" type="submit">Crear Cita</ion-button>
+  </form>
+</ion-content>
+

@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detalles de la Cita</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/appointments"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="appointment">
+    <ion-card-header>
+      <ion-card-title>{{ appointment.customerName }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Servicio:</strong> {{ appointment.serviceType }}</p>
+      <p><strong>Fecha:</strong> {{ appointment.appointmentDate | date:'fullDate' }}</p>
+      <p><strong>Hora:</strong> {{ appointment.appointmentTime }}</p>
+      <p><strong>Costo Estimado:</strong> {{ appointment.estimatedCost | currency }}</p>
+
+      <ion-item *ngIf="!appointment.paid">
+        <ion-label>Depósito: {{ appointment.deposit | currency }}</ion-label>
+        <ion-button (click)="payDeposit()">Pagar Depósito</ion-button>
+      </ion-item>
+
+      <ion-item>
+        <ion-button color="danger" expand="full" (click)="cancelAppointment()">Cancelar Cita</ion-button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
